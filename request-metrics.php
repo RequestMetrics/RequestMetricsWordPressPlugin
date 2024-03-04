@@ -1,14 +1,32 @@
 <?php
 
-/*
- * Plugin Name:   Request Metrics Real User Performance Monitoring
- * Plugin URI:    https://requestmetrics.com/TODO
- * Description:   TODO
- * Version:       1.0.0
- * Author:        Request Metrics
- * Author URI:    https://requestmetrics.com/
- * License:       TODO
+/**
+ * @package   Request Metrics Real User Performance Monitoring
+ * @author    Request Metrics <hello@requestmetrics.com>
+ * @license   GPLv3
+ * @link      https://requestmetrics.com/
+ *
+ * Plugin Name:     Request Metrics Real User Performance Monitoring
+ * Plugin URI:      https://requestmetrics.com/docs/wordpress
+ * Description:     Track real-user performance, fix Core Web Vitals, and boost your SEO.
+ * Version:         1.0.0
+ * Author:          Request Metrics
+ * Author URI:      https://requestmetrics.com/
+ * Text Domain:     request-metrics
+ * License:         GPLv3
+ * License URI:     http://www.gnu.org/licenses/gpl-3.0.txt
+ * Domain Path:     /languages
+ * Requires PHP:    7.4
  */
+
+
+
+// If this file is called directly, abort.
+if ( !defined( 'ABSPATH' ) ) {
+	die( 'We\'re sorry, but you can not directly access this file.' );
+}
+
+
 
 /**
  * Plugin Activation/Deactivation
@@ -34,13 +52,13 @@ function rm_settings_init() {
   register_setting('rm_plugin', 'request_metrics');
   add_settings_section(
     'rm_plugin_section',
-    __('Account Settings', 'request_metrics_text_domain'),
+    __('Account Settings', 'request-metrics'),
     'rm_account_settings_section_render',
     'rm_plugin'
   );
   add_settings_field(
     'token',
-    __('Site Token', 'request_metrics_text_domain'),
+    __('Site Token', 'request-metrics'),
     'rm_token_render',
     'rm_plugin',
     'rm_plugin_section'
@@ -58,7 +76,7 @@ function rm_add_admin_menu() {
 }
 
 function rm_account_settings_section_render() {
-  echo __('General settings to link your Request Metrics account.', 'request_metrics_text_domain');
+  echo __('General settings to link your Request Metrics account.', 'request-metrics');
 }
 
 function rm_token_render() {
