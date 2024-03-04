@@ -76,13 +76,13 @@ function rm_add_admin_menu() {
 }
 
 function rm_account_settings_section_render() {
-  echo __('General settings to link your Request Metrics account.', 'request-metrics');
+  echo esc_html(__('General settings to link your Request Metrics account.', 'request-metrics'));
 }
 
 function rm_token_render() {
   $options = get_option('request_metrics');
   ?>
-  <input type='text' name='request_metrics[token]' value='<?php echo $options['token']; ?>'>
+  <input type='text' name='request_metrics[token]' value='<?php echo esc_html($options['token']); ?>'>
   <?php
 }
 
@@ -114,8 +114,8 @@ function rm_install_js_snippet() {
   <script>
     (function(t,e,n,r){function a(){return e&&e.now?e.now():null}if(!n.version){n._events=[];n._errors=[];n._metadata={};n._urlGroup=null;window.RM=n;n.install=function(e){n._options=e;var a=t.createElement("script");a.async=true;a.crossOrigin="anonymous";a.src=r;var o=t.getElementsByTagName("script")[0];o.parentNode.insertBefore(a,o)};n.identify=function(t,e){n._userId=t;n._identifyOptions=e};n.sendEvent=function(t,e){n._events.push({eventName:t,metadata:e,time:a()})};n.setUrlGroup=function(t){n._urlGroup=t};n.track=function(t,e){n._errors.push({error:t,metadata:e,time:a()})};n.addMetadata=function(t){n._metadata=Object.assign(n._metadata,t)}}})(document,window.performance,window.RM||{},"https://cdn.requestmetrics.com/agent/current/rm.js");
     RM.install({
-      token: '<?php echo $options['token']; ?>'<?php if (!empty($page_group)) {?>,
-      urlGroup: '<?php echo $page_group; ?>'<?php } ?>
+      token: '<?php echo esc_js($options['token']); ?>'<?php if (!empty($page_group)) {?>,
+      urlGroup: '<?php echo esc_js($page_group); ?>'<?php } ?>
     });
   </script>
   <?php
@@ -132,11 +132,11 @@ function rm_send_conversion($order_id) {
     ?>
     <script>
       setTimeout(() => {
-        var ORDER_TRACKED_KEY = "rm_order_tracked_<?php echo $order_id ?>";
+        var ORDER_TRACKED_KEY = "rm_order_tracked_<?php echo esc_js($order_id); ?>";
         if (!localStorage.getItem(ORDER_TRACKED_KEY)) {
           window.RM && RM.sendEvent("purchase", {
             isConversion: true,
-            conversionValue: <?php echo $order_total ?>
+            conversionValue: <?php echo esc_js($order_total); ?>
           });
           localStorage.setItem(ORDER_TRACKED_KEY, true);
         }
