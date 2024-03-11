@@ -117,7 +117,7 @@ function rm_render_dashboard_page() {
     <h1>Request Metrics Dashboard</h1>
 
     <?php if (empty($appId)) { ?>
-      <h2>Please configure your token on the <a href="<?php echo admin_url("admin.php?page=rm_settings_page"); ?>">settings page</a>.</h2>
+      <h2>Please configure your token on the <a href="<?php echo esc_html(admin_url("admin.php?page=rm_settings_page")); ?>">settings page</a>.</h2>
     <?php } else { ?>
       <a href="https://app.requestmetrics.com/app/<?php echo esc_html($appId) ?>" target="_blank" class="button button-primary" style="margin-top:20px;">
         Launch Dashboard
