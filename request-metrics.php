@@ -1,12 +1,12 @@
 <?php
 
 /**
- * @package   Request Metrics Real User Performance Monitoring
+ * @package   Request Metrics
  * @author    Request Metrics <hello@requestmetrics.com>
  * @license   GPLv3
  * @link      https://requestmetrics.com/
  *
- * Plugin Name:     Request Metrics Real User Performance Monitoring
+ * Plugin Name:     Request Metrics
  * Plugin URI:      https://requestmetrics.com/docs/wordpress
  * Description:     Track real-user performance, fix Core Web Vitals, and boost your SEO.
  * Version:         1.0.0
@@ -110,7 +110,10 @@ function rm_create_admin_pages() {
 
 function rm_render_dashboard_page() {
   $options = get_option('request_metrics');
-  $appId = explode(":", $options['token'], 2)[1];
+  $parts = explode(":", $options['token'], 2);
+  if (count($parts) == 2) {
+    $appId = $parts[1];
+  }
 
   ?>
   <div class="wrap">
@@ -119,7 +122,7 @@ function rm_render_dashboard_page() {
     <?php if (empty($appId)) { ?>
       <h2>Please configure your token on the <a href="<?php echo esc_html(admin_url("admin.php?page=rm_settings_page")); ?>">settings page</a>.</h2>
     <?php } else { ?>
-      <a href="https://app.requestmetrics.com/app/<?php echo esc_html($appId) ?>" target="_blank" class="button button-primary" style="margin-top:20px;">
+      <a href="https://app.requestmetrics.com/app/<?php echo esc_html($appId) ?>?utm_source=wordpress_plugin" target="_blank" class="button button-primary" style="margin-top:20px;">
         Launch Dashboard
       </a>
     <?php } ?>

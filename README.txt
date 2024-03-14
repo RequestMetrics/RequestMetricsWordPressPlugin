@@ -1,4 +1,4 @@
-=== Request Metrics Real User Performance Monitoring ===
+=== Request Metrics ===
 Contributors: requestmetrics
 Tags: pagespeed, web-vitals, performance, speed, core-web-vitals
 Requires at least: 4.9
