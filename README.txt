@@ -3,7 +3,7 @@ Contributors: requestmetrics
 Tags: pagespeed, web-vitals, performance, speed, core-web-vitals
 Requires at least: 4.9
 Tested up to: 6.4.3
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.0

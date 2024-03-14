@@ -9,7 +9,7 @@
  * Plugin Name:     Request Metrics
  * Plugin URI:      https://requestmetrics.com/docs/wordpress
  * Description:     Track real-user performance, fix Core Web Vitals, and boost your SEO.
- * Version:         1.0.0
+ * Version:         1.0.1
  * Author:          Request Metrics
  * Author URI:      https://requestmetrics.com/
  * Text Domain:     request-metrics
