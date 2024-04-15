@@ -3,7 +3,7 @@ Contributors: requestmetrics
 Tags: pagespeed, web-vitals, performance, speed, core-web-vitals
 Requires at least: 4.9
 Tested up to: 6.4.3
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 7.0
@@ -77,7 +77,18 @@ Maybe! Contact our team.
 = 1.0.0 =
 * Initial release.
 
+= 1.0.2 =
+* Internal renaming of functions to meet WordPress Codex standards.
 
 == Get Support ==
 
 Our team of engineers is available to help you with installation, troubleshooting, and general performance questions. Contact us anytime at [https://requestmetrics.com/contact/](https://requestmetrics.com/contact/) or [hello@requestmetrics.com](mailto:hello@requestmetrics.com).
+
+== Developer Notes ==
+
+= Packaging Command =
+
+from /wp-content/plugins:
+
+`zip request-metrics-v0.0.0.zip -r ./request-metrics/**`
+
